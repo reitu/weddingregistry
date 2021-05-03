@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link href="./css/index.css" rel="stylesheet">
+      <script type="module" src="./js/gift.js"></script>
+
+</head>
+<body>
+    <div>
+        <button id="btnStore"> check local storage</button>
+        <form id="userform" class="info">
+            <div class="sections">
+                Bride Personal details
+            </div>
+            <div class="brideinfo">
+                <label for="name"> Bride Name: </label>
+                <input type="text" id="username"> </br>
+                <label> Bride Email:</label>
+                <input type="email" id="useremail">
+            </div>
+            <div class="sections">
+                Wedding Day Details
+            </div>
+            <div class="dayinfo"> 
+                <label> Title of Wedding</label>
+                <input type="text" id="wedtitle"> </br>
+                <label>Details of Wedding</label>
+                <input type="text" id="weddetails">
+            </div>
+            <button id="btnsub">Submit</button>
+        </form>
+        <form id="form2">
+            <div class="sections">
+                Gift Registry Details
+            </div>
+            <div class="giftinfo">
+                <p>
+                    Create your own gift registry now
+                </p>
+                <p>
+                    To create your registry, add a new gift below and click on Add button:
+                </p>
+                <label> Gift Name:</label>
+                <input type="text" id="giftname"> </br>
+                <label>Gift Price Range: </label>
+                <input type="number" id="giftprice"> </br>
+                <button id="btnadd" type="submit">Add Gift</button>
+                <p>
+                    Your selected gifts will show down below.
+                </p>
+            </div>
+            <div class="showgifts">
+                <div id="giftlist">
+    
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
