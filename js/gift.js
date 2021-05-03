@@ -1,4 +1,4 @@
-import {gifts, stringToHTML, addGifts, brideUser, addBrideUser, storeBrideUser, getBrideUserInfo, init} from './api.js'
+import {gifts, stringToHTML, addGifts, brideUser, addBrideUser, init} from './api.js'
   
 var addbtn = document.getElementById("btnadd")
 
@@ -8,6 +8,8 @@ window.onload= start()
 
 function start () {
     init()
+    
+    // set Bride details
     document.getElementById("username").value = brideUser.userName
     document.getElementById("useremail").value = brideUser.userEmail
     document.getElementById("wedtitle").value = brideUser.weddingTitle
@@ -25,24 +27,12 @@ function addBride(e) {
     var wedDetails = document.getElementById("weddetails").value  //calling it once
     console.log('THIS IS THE BRIDE USER INFO: ', addBrideUser(userName, userEmail, wedTitle, wedDetails)) //calling it again so it would then be at 2 items in obj. be careful
     console.log(`
-    ${userName}
-    ${userEmail}
-    ${wedTitle}
-    ${wedDetails}`
-    )
-    console.log('ThIS IS MY STORAGE FOR USER BRIDE:  ', storeBrideUser(brideUser))
-    //firstform.reset()
-
+        ${userName}
+        ${userEmail}
+        ${wedTitle}
+        ${wedDetails}
+    `)
 }
-
-var btnStorage = document.getElementById("btnStore")
-btnStorage.onclick = function() {
-    console.log('This is in my storage: ', storeBrideUser())
-}
-
-//console.log('I got the user info from the storage: ', getUserInfo())
-
-
 
 
 const form = document.getElementById("form2")

@@ -1,4 +1,4 @@
-import {gifts, stringToHTML, addGifts, brideUser, addBrideUser, storeBrideUser, getBrideUserInfo, init} from './api.js'
+import {gifts, stringToHTML, addGifts, brideUser, addBrideUser, init} from './api.js'
 
 
 window.onload= startGuest()

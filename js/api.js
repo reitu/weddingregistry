@@ -6,7 +6,7 @@ export var gifts = [ {
 export var brideUser = {}
 
 export function init () {
-    getBrideUserInfo()
+    pullBrideUserInfo()
 }
 
 export const stringToHTML = function (str) {
@@ -30,19 +30,18 @@ export function addBrideUser(nameUser = '', emailUser = '', titleWed = '', detai
         weddingTitle: titleWed, 
         weddingDetails: detailWed
     }
-    storeBrideUser()
+    pushBrideUser()
     return brideUser
 }
 
-
-export function storeBrideUser () {
+function pushBrideUser () {
     var myJSONstring = JSON.stringify(brideUser)
     window.localStorage.setItem('user', myJSONstring)
     return myJSONstring
 }
 
-
-export function getBrideUserInfo () {
+// point is to populate your local object with whats in your local storage 
+function pullBrideUserInfo () {
     var brideStr = window.localStorage.getItem('user') //this is the thing taken from the local storage, obj
     if (brideStr) {     //if theres something in the storage then must pop the {} with that thing in there
         brideUser = JSON.parse(brideStr)
@@ -50,4 +49,4 @@ export function getBrideUserInfo () {
     if (!brideStr) {
         addBrideUser()
     }
-} //point is to populate your local object with whats in your local storage 
+}
