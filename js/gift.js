@@ -1,14 +1,11 @@
-import {gifts, stringToHTML, addGifts, brideUser, addBrideUser, init} from './api.js'
-  
-var addbtn = document.getElementById("btnadd")
+import {gifts, addGifts, brideUser, addBrideUser, init} from './api.js'
+import {stringToHTML} from './helpers.js'
 
-addbtn.onclick = addItem
 
 window.onload= start()
 
 function start () {
     init()
-    
     // set Bride details
     document.getElementById("username").value = brideUser.userName
     document.getElementById("useremail").value = brideUser.userEmail
@@ -33,48 +30,6 @@ function addBride(e) {
         ${wedDetails}
     `)
 }
-
-
-const form = document.getElementById("form2")
-form.onsubmit = addItem
-
-
-function addItem(e) {
-    e.preventDefault()
-    var namegift = document.getElementById("giftname")
-    var pricegift = document.getElementById("giftprice")
-    addGifts(namegift.value,pricegift.value) //why not working if i do it like this? //var namegift = document.getElementById("giftname").value ???
-    render()
-    console.log("These are all my gifts", gifts) 
-    form.reset()
-}
-
-console.log("These are all my gifts", gifts) //why does it keep replacing the latest added array item??? to do!!
-
-
-
-function render() {
-    var listgift = document.getElementById("giftlist")
-    listgift.innerHTML = ''
-    gifts.forEach(element => {
-        console.log('This is my gift: ',element)
-        listgift.appendChild(stringToHTML(`
-            <div class="listitem"> 
-                <div class="itemname">
-                    ${element.name}
-                </div>
-                <div class="itemprice">
-                    ${element.price}
-                </div>
-                <button class="Remove"> Remove 
-                </button>
-            </div>
-        `))
-    });
-
-}
-
-
 
 
 

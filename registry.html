@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Gift</title>
+    <link href="./css/index.css" rel="stylesheet">
+    <script type="module" src="./js/registry.js"></script>
+    <script type="module" src="./js/helpers.js"></script>
+</head>
+<body>
+    <form id="form2">
+        <div class="sections">
+            <button onclick="location.href = 'gift.html'" id="backButton" class="float-left submit-button" >Back</button>
+            Gift Registry Details
+        </div>
+        <div class="giftinfo">
+            <p>
+                Create your own gift registry now
+            </p>
+            <p>
+                To create your registry, add a new gift below and click on Add button:
+            </p>
+            <label> Gift Name:</label>
+            <input type="text" id="giftname"> </br>
+            <label>Gift Price Range: </label>
+            <input type="number" id="giftprice"> </br>
+            <button id="btnadd" type="submit">Add Gift</button>
+            <p>
+                Your selected gifts will show down below.
+            </p>
+        </div>
+        <div class="showgifts">
+            <div id="giftlist">
+
+            </div>
+        </div>
+    </form>
+    <button onclick="location.href = 'confirmation.html'" id="giftButton" class="float-left submit-button" >Confirm</button>
+</body>
+</html>

@@ -6,11 +6,11 @@
     <title>Document</title>
       <link href="./css/index.css" rel="stylesheet">
       <script type="module" src="./js/gift.js"></script>
+      <script type="module" src="./js/helpers.js"></script>
 
 </head>
 <body>
     <div>
-        <button id="btnStore"> check local storage</button>
         <form id="userform" class="info">
             <div class="sections">
                 Bride Personal details
@@ -32,33 +32,9 @@
             </div>
             <button id="btnsub">Submit</button>
         </form>
-        <form id="form2">
-            <div class="sections">
-                Gift Registry Details
-            </div>
-            <div class="giftinfo">
-                <p>
-                    Create your own gift registry now
-                </p>
-                <p>
-                    To create your registry, add a new gift below and click on Add button:
-                </p>
-                <label> Gift Name:</label>
-                <input type="text" id="giftname"> </br>
-                <label>Gift Price Range: </label>
-                <input type="number" id="giftprice"> </br>
-                <button id="btnadd" type="submit">Add Gift</button>
-                <p>
-                    Your selected gifts will show down below.
-                </p>
-            </div>
-            <div class="showgifts">
-                <div id="giftlist">
-    
-                </div>
-            </div>
-        </form>
     </div>
-    
+    <div class="giftsec">
+        <button onclick="location.href = 'registry.html'" id="giftButton" class="float-left submit-button" >Create My Gift Registry</button>
+    </div>
 </body>
 </html>

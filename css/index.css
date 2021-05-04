@@ -43,9 +43,26 @@
     text-align: center;
     padding: 8px;
     border: blue 1px solid;
-    height: 400px;
+    height: 200px;
+    overflow-y :auto;
 }
 
 .guestD {
     font-size: 24px;
+}
+
+.giftsec{
+   
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    padding: 8px;
+    
+}
+
+#giftButton {
+    padding: 12px;
+    font-size: 20px;
+    color: blue;
+    margin: 12px;
 }
