@@ -66,3 +66,37 @@
     color: blue;
     margin: 12px;
 }
+
+.welcomeinfo {
+    border: blue 1px solid;
+    text-align: center;
+    padding: 16px;
+    width: 800px;
+    margin: auto;
+}
+
+.rsvp-section {
+    padding: 24px;
+}
+
+.gift-intro {
+    padding: 24px;
+    border-top: palevioletred 1px solid;
+
+
+}
+
+#notice-section {
+    background-color: whitesmoke;
+    padding: 4px;
+    
+   
+}
+
+#showlist {
+    text-align: center;
+    padding: 16px;
+    width: 800px;
+    margin: auto;
+    border: thistle 1px solid;
+}

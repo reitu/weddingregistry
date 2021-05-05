@@ -1,61 +1,79 @@
-export var gifts = []
+export var plannerAcc = {} // wedding planner account
 
-export var brideUser = {}
+export var guestAcc = {} // wedding guest account
 
-export function init () {
-    pullBrideUserInfo()
-    pullBrideGifts ()
+export function init () { 
+    pullPlannerAcc()
+    pullGuestAcc()
 }
 
-export function addBrideUser(nameUser = '', emailUser = '', titleWed = '', detailWed = '') { //this is the default value for the parameters if your values are falsy
-    brideUser = {   
+//PLANNER SECTION
+
+export function addPlannerProfile(nameUser = '', emailUser = '', titleWed = '', detailWed = '') { //this is the default value for the parameters if your values are falsy
+    plannerAcc = {   
         userName: nameUser,  
         userEmail: emailUser,
         weddingTitle: titleWed, 
-        weddingDetails: detailWed
+        weddingDetails: detailWed,
+        userGifts: []
     }
-    pushBrideUser()
-    return brideUser
+    pushPlannerAcc()
+    return plannerAcc
 }
 
-function pushBrideUser () { //push and pull storage functions must never be exposed outside the API, so never exported!! Since all you need is access to the datasource, not the API local storage functions, the datasource, in this case the object brideUser is all that is needed to achieve everything th datasource and ui would need to, since also the push/pull functions update the local obj, thats the only thing that need to be accessed outside the API?! 
-    var myJSONstring = JSON.stringify(brideUser) //the UI should never be able to touch the storage, or modify the datasource, should only ever be able to READ access, never to MODIFY, UPDATE or DELETE the dstasource. 
-    window.localStorage.setItem('profile', myJSONstring)
+function pushPlannerAcc() { // point is to populate your local object with whats in your local storage 
+    var myJSONstring = JSON.stringify(plannerAcc) //the UI should never be able to touch the storage, or modify the datasource, should only ever be able to READ access, never to MODIFY, UPDATE or DELETE the dstasource. 
+    window.localStorage.setItem('plannerAcc', myJSONstring) 
 }
 
-// point is to populate your local object with whats in your local storage 
-function pullBrideUserInfo () {
-    var brideStr = window.localStorage.profile//this is the thing taken from the local storage, obj
-    if (brideStr) {     //if theres something in the storage then must pop the {} with that thing in there
-        brideUser = JSON.parse(brideStr)
+function pullPlannerAcc () {
+    var storedStr = window.localStorage.plannerAcc
+    if (storedStr) {     
+        plannerAcc = JSON.parse(storedStr)
     }
-    if (!brideStr) {
-        addBrideUser()
+    if (!storedStr) {
+        addPlannerProfile()
     }
 }
 
-export function addGifts (gname, gprice) {
-    gifts.push({
+export function createPlannerRegistry (gname, gprice) { 
+    pullPlannerAcc()
+    plannerAcc.userGifts.push({
         name: gname,
         price: parseInt(gprice)
     })
-    pushBrideGifts()
-    return gifts
+    pushPlannerAcc()
 }
 
-//separate the datasources by pushing and pulling them in sep funcs
 
-function pushBrideGifts () { //push and pull storage functions must never be exposed outside the API, so never exported!! Since all you need is access to the datasource, not the API local storage functions, the datasource, in this case the object brideUser is all that is needed to achieve everything th datasource and ui would need to, since also the push/pull functions update the local obj, thats the only thing that need to be accessed outside the API?! 
-    var myJSONstring = JSON.stringify(gifts) //the UI should never be able to touch the storage, or modify the datasource, should only ever be able to READ access, never to MODIFY, UPDATE or DELETE the dstasource. 
-    window.localStorage.setItem('registry', myJSONstring) //the 'registry' here is the name of the key of what im pushing
+//GUEST SECTION 
+
+export function addGuestProfile (thename, theemail) {
+    guestAcc = {
+        guestName : thename,
+        guestEmail: theemail, 
+        guestGift: {}
+    }
+    pushGuestAcc()
 }
 
-function pullBrideGifts () {
-    var regStr = window.localStorage.registry 
-    if (regStr) {     
-        gifts = JSON.parse(regStr)
+function pushGuestAcc () { 
+    var myJSONstring = JSON.stringify(guestAcc) 
+    window.localStorage.setItem('guestAccount', myJSONstring) 
+}
+
+function pullGuestAcc () {
+    var storedStrP = window.localStorage.guestAccount
+    if  (storedStrP) {     
+        guestAcc = JSON.parse(storedStrP)
     }
-    if (!regStr) {
-        gifts = []
+    if (!storedStrP) {
+        guestAcc = {}
     }
+}
+
+export function addGuestGift(selectedGift) {
+    pullGuestAcc()
+    guestAcc.guestGift = selectedGift
+    pushGuestAcc()
 }
