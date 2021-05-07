@@ -84,13 +84,13 @@ export function addGuestGift(selectedGift) {
 
 //SIGN UP SECTION
 
-export function signupUser(name, username, email, password) {
+export function signupUser(email, psswrd) {
     users.push({
-        fullName: name,
-        userName: username,
-        emailAddress: email,
-        passWord: password,
-        uuid: getUniqueID()
+        newUser : {
+                emailAddress: email,
+                passWord: psswrd,
+                uuid: getUniqueID()
+        }
     })
 
     pushUserSignupAcc()
@@ -134,8 +134,13 @@ function getUniqueID () {
     var duplicate = false
     let id = uuidv4()
     users.forEach(element => {
-        if (element.uuid === id) {
-            duplicate = true
+        console.log('element', element)
+        try {
+            if (element.newUser.uuid === id) {
+                duplicate = true
+            }
+        } catch (e) {
+            console.error('error', e)
         }
     });
     if (duplicate) {
@@ -143,8 +148,8 @@ function getUniqueID () {
     } else {
         return id
     }
-}
+} 
 
-//use some() or object to optimise above duplicate check - to do / time-space complexity
+//use some() or object to optimise above duplicate check - to do / time
 
 //changer users to objects - to do!

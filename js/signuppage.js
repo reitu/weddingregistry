@@ -16,10 +16,19 @@ signupForm.onsubmit = addSignup //!!!
 function addSignup(e) {
     //console.log(signupForm.onsubmit) 
     e.preventDefault()
-    var userName = document.getElementById("username-su")
+    var userpswd = document.getElementById("password-su")
     var userEmail = document.getElementById("email-su")
-    signupUser(userName.value, userEmail.value)
+    userExist(userpswd)
+    signupUser(userEmail.value, userpswd.value)
     console.log(users)
 }
 
 
+function userExist(nameEntered) {
+    users.forEach(element => {
+        if (element.newUser.userEmail === nameEntered) {
+            console.log("NAME IS HERE!")
+        }
+        
+    });
+}
