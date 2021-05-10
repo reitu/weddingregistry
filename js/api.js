@@ -4,10 +4,10 @@ export function example() {
 
 export function getUsers() {}
 
-export function addUser(user) {}
+export function addUser() {}
 
-export function getGifts(id) {}
+export function getGifts() {}
 
-export function addGift(id, gift) {}
+export function addGift() {}
 
-export function updateGifts(guest, gifts) {}
+export function updateGifts() {}
